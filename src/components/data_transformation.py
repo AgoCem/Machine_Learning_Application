@@ -94,7 +94,11 @@ class DataTransformation:
             logging.info("Starting the preprocessing on training and test data")
 
             input_feature_train_arr = preprocessor_obj.fit_transform(input_feature_train_df)
-            input_feature_test_arr = preprocessor_obj.transform(input_feature_test_df)
+            input_feature_test_arr = preprocessor_obj.transform(input_feature_test_df)#of course
+                        #the processor is fit only on the train data and then i apply that fit
+                        # on test data as well, that's why it is only transform
+
+
             #a useful numpy feature to concatenate over columns
             train_arr = np.c_[
                 input_feature_train_arr, np.array(target_feature_train_df)
